@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { ScrollArea } from "@/components/ui/scroll-area"
 import ContactList from "./components/ContactList";
 import { contact } from "@/types";
 import ContactForm from "./components/contactForm";
@@ -7,8 +7,9 @@ import { HiOutlinePlus } from "react-icons/hi2";
 
 const App: React.FC = () => {
   const [contacts, setContacts] = useState<contact[]>([
-    { id: 1, firstName: "John", lastName: "Doe", company: "Tech Co.", phone: "123-456-7890" },
-    { id: 2, firstName: "Jane", lastName: "Smith", company: "Innovate Ltd.", phone: "098-765-4321" },
+    { id: 1, firstName: "John", lastName: "Doe", company: "DIMBA jr devs ltd.", phone: "123-456-7890" },
+    { id: 2, firstName: "Jane", lastName: "Smith", company: "DIMBA scouts ltd.", phone: "098-765-4321" },
+    
   ]);
   const [editingContact, setEditingContact] = useState<contact | null>(null);
   const [isEditingContact, setIsEditingContact] = useState(false)
@@ -40,7 +41,7 @@ const App: React.FC = () => {
     <HiOutlinePlus className="size-11 " onClick={()=>{setAddContact(true)}  }/>
     </div>
     </div>
-      <div className="md:w-3/5 w-3/4 h-full p-5 bg-primary rounded-sm shadow">
+      <ScrollArea className="md:w-3/5 w-3/4 h-full p-5 bg-primary rounded-sm shadow">
         <ContactList contacts={contacts} onDelete={deleteContact} onEdit={(contact)=>{
           setEditingContact(contact)
           setIsEditingContact(true)
@@ -48,7 +49,7 @@ const App: React.FC = () => {
        {addContact && <ContactForm onSave={handleSave} editingContact={null} />}
         {isEditingContact && <ContactForm onSave={handleSave} editingContact={editingContact} />}
 
-      </div>
+      </ScrollArea>
     </div>
   );
 };
