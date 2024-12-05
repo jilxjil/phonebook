@@ -1,12 +1,20 @@
 export interface contact {
-    id: String;
-    firstName: String;
-    lastName:String;
-    phone: String;
-    company:String
-}
+    id: number;
+    firstName: string;
+    lastName: string;
+    company: string;
+    phone: string;
+  }
 
 export interface ContactFormProps {
     onSave: (contact: contact) => void;
     editingContact?: contact | null;
   }
+
+  export interface ContactCardProps {
+    contact: contact;
+    onDelete: (id: number) => void;
+    onEdit: (contact: contact) => void;
+  }
+
+ 

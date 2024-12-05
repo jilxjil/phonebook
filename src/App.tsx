@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header from "./components/Header";
-import ContactList from "./components/contactList";
+
+import ContactList from "./components/ContactList";
 import { contact } from "@/types";
 import ContactForm from "./components/contactForm";
 import { HiOutlinePlus } from "react-icons/hi2";
